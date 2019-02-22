@@ -96,11 +96,14 @@ public class Main {
                             String arC = lectura.next();
                             double areaC = Double.parseDouble(arC);
                             
-                            if(universidad.addSedeTEducacionConti(" ", nombreC, direccionC, telefonoC, areaC)){
+                            if(universidad.addSedeTEducacionConti("nell", nombreC, direccionC, telefonoC, areaC)){
                                 System.out.println("La sede se ha registrado exitosamente");
                             }else{
                                 System.out.println("Ocurrio un error");
                             }
+                            System.out.println("COMPROBACION");
+                            for(Sede sede: universidad.getSedes())
+                                System.out.println(sede.tipo);
                             break;
                     }
                     break;

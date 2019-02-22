@@ -19,7 +19,7 @@ public class GestionArchivo {
         this.direccion = direccion;
     }
     
-    public boolean guardar(ArrayList<Sede> sed) throws IOException{//areglar para que se adecue a el formato predilecto
+    public boolean guardar(ArrayList<Sede> sed) throws IOException{//arreglar para que reescriba lo anterior junt con lo que se agregue, ademas para los programas
         File archivo = new File(this.direccion);
         if(!archivo.exists())
             archivo.createNewFile();
@@ -27,8 +27,63 @@ public class GestionArchivo {
         PrintStream salida = 
                new PrintStream(archivo);
         for (Sede sede : sed) {
-            salida.print(sede.toString());
-            salida.print(" ");
+            if (sede.tipo == "Tecnologica") {
+                TTecnologico sedT;
+                sedT = (TTecnologico) sede; 
+                salida.print(sedT.tipo);
+                salida.print(",");
+                salida.print(sedT.tipo);
+                salida.print(",");
+                salida.print(sedT.nombre);
+                salida.print(",");
+                salida.print(sedT.direccion);
+                salida.print(",");
+                salida.print(sedT.telefono);
+                salida.print(",");
+                salida.print(sedT.areaCons);
+                salida.print(",");
+                salida.print(sedT.getNumeroMatriculados());
+                salida.print(",\n");
+            }else{
+                if (sede.tipo == "Educacion-continuada") {
+                    TEducacionConti sedt;
+                    sedt = (TEducacionConti) sede;
+                    salida.print(sedt.tipo);
+                    salida.print(",");
+                    salida.print(sedt.tipo);
+                    salida.print(",");
+                    salida.print(sedt.nombre);
+                    salida.print(",");
+                    salida.print(sedt.direccion);
+                    salida.print(",");
+                    salida.print(sedt.telefono);
+                    salida.print(",");
+                    salida.print(sedt.areaCons);
+                    salida.print(",");
+                    salida.print(sedt.getCursoMasPopu());
+                    salida.print(",\n");
+                }else{
+                    if(sede.tipo == "Profesional"){
+                        TProfesional sedC;
+                        sedC =(TProfesional) sede;
+                        salida.print(sedC.tipo);
+                        salida.print(",");
+                        salida.print(sedC.tipo);
+                        salida.print(",");
+                        salida.print(sedC.nombre);
+                        salida.print(",");
+                        salida.print(sedC.direccion);
+                        salida.print(",");
+                        salida.print(sedC.telefono);
+                        salida.print(",");
+                        salida.print(sedC.areaCons);
+                        salida.print(",");
+                        salida.print(sedC.getNumProgramAltaC());
+                        salida.print(",\n");
+                    }
+                    System.out.println("No hay sedes viables");
+                }
+            }
         }
         salida.flush();
         salida.close();
@@ -58,13 +113,17 @@ public class GestionArchivo {
         TProfesional ntp = null;
         
         String tip = lec.next().trim();
+        //System.out.println(tip);
         String nom = lec.next().trim();
+        //System.out.println(nom);
         String dir = lec.next().trim();//es posible que esto falle
+        //System.out.println(dir);
         String num = lec.next().trim();
         int tel = Integer.parseInt(num);
         String are = lec.next().trim();
         double area = Double.parseDouble(are);
         String numM = lec.next().trim();
+        //System.out.println(numM);
         int numP = Integer.parseInt(numM);
         
         ntp = new TProfesional(tip, nom, dir, tel, area, numP);
@@ -93,7 +152,7 @@ public class GestionArchivo {
     public Sede cargarSede(Scanner lec){
         String type = lec.next().trim();
         
-        if (type.equals("Tecnica")){
+        if (type.equals("Tecnologica")){
             return cargarTecnic(lec);
         }else{
             if (type.equals("Educacion-continuada")) return cargarEduC(lec);

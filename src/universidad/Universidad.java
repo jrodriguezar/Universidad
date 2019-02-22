@@ -18,7 +18,7 @@ public class Universidad {
     
     //Métodos para registrar sedes
     public boolean addSedeTEducacionConti(String cursoMasPopu, String nombre, String direccion, int telefono, double areaCons){
-        return this.sedes.add(new TEducacionConti("Educacioncontinuada", nombre, direccion, telefono, areaCons, cursoMasPopu));
+        return this.sedes.add(new TEducacionConti("Educacion-continuada", nombre, direccion, telefono, areaCons, cursoMasPopu));
     }
     
     public boolean addSedeTProfesional(int numProgramAltaC, String nombre, String direccion, int telefono, double areaCons){
