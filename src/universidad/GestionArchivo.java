@@ -93,72 +93,81 @@ public class GestionArchivo {
     public TEducacionConti cargarEduC(Scanner lec){
         
         TEducacionConti ntc = null;
-        
-        String tip = lec.next().trim();
-        String nom = lec.next().trim();
-        String dir = lec.next().trim();//es posible que esto falle, puede que funcione en su luugar nextline
-        String num = lec.next().trim();
-        int tel = Integer.parseInt(num);
-        String are = lec.next().trim();
-        double area = Double.parseDouble(are);
-        String cursop = lec.next().trim();
-        
-        ntc = new TEducacionConti(tip, nom, dir, tel, area, cursop);
-        
+        try{
+            String tip = lec.next().trim();
+            String nom = lec.next().trim();
+            String dir = lec.next().trim();//es posible que esto falle, puede que funcione en su luugar nextline
+            String num = lec.next().trim();
+            int tel = Integer.parseInt(num);
+            String are = lec.next().trim();
+            double area = Double.parseDouble(are);
+            String cursop = lec.next().trim();
+             ntc = new TEducacionConti(tip, nom, dir, tel, area, cursop);
+        }catch(Exception e){
+            System.out.println("-e-");
+        }            
         return ntc;
     }
     
     public TProfesional cargarPro(Scanner lec){
         
         TProfesional ntp = null;
+        try{
+            String tip = lec.next().trim();
+            //System.out.println(tip);
+            String nom = lec.next().trim();
+            //System.out.println(nom);
+            String dir = lec.next().trim();//es posible que esto falle
+            //System.out.println(dir);
+            String num = lec.next().trim();
+            int tel = Integer.parseInt(num);
+            String are = lec.next().trim();
+            double area = Double.parseDouble(are);
+            String numM = lec.next().trim();
+            //System.out.println(numM);
+            int numP = Integer.parseInt(numM);
+            ntp = new TProfesional(tip, nom, dir, tel, area, numP);
         
-        String tip = lec.next().trim();
-        //System.out.println(tip);
-        String nom = lec.next().trim();
-        //System.out.println(nom);
-        String dir = lec.next().trim();//es posible que esto falle
-        //System.out.println(dir);
-        String num = lec.next().trim();
-        int tel = Integer.parseInt(num);
-        String are = lec.next().trim();
-        double area = Double.parseDouble(are);
-        String numM = lec.next().trim();
-        //System.out.println(numM);
-        int numP = Integer.parseInt(numM);
-        
-        ntp = new TProfesional(tip, nom, dir, tel, area, numP);
+        }catch(Exception e ){
+            System.out.println("-e-");
+        }
         
         return ntp;
     }
     
     public TTecnologico cargarTecnic(Scanner lec){
         TTecnologico ntt = null;
-        
-        String tip = lec.next().trim();
-        String nom = lec.next().trim();
-        String dir = lec.next().trim();//es posible que esto falle
-        String num = lec.next().trim();
-        int tel = Integer.parseInt(num);
-        String are = lec.next().trim();
-        double area = Double.parseDouble(are);
-        String numM = lec.next().trim();
-        int numMa = Integer.parseInt(numM);
-        
-        ntt = new TTecnologico(tip, nom, dir, tel, area, numMa);
-        
+        try{
+            String tip = lec.next().trim();
+            String nom = lec.next().trim();
+            String dir = lec.next().trim();//es posible que esto falle
+            String num = lec.next().trim();
+            int tel = Integer.parseInt(num);
+            String are = lec.next().trim();
+            double area = Double.parseDouble(are);
+            String numM = lec.next().trim();
+            int numMa = Integer.parseInt(numM);
+
+            ntt = new TTecnologico(tip, nom, dir, tel, area, numMa);
+        }catch(Exception e){
+            System.out.println("-e-");
+        }
         return ntt;
     }
     
-    public Sede cargarSede(Scanner lec){
+    public Sede cargarSede(Scanner lec){ //revisar este try n catch
         String type = lec.next().trim();
-        
-        if (type.equals("Tecnologica")){
-            return cargarTecnic(lec);
-        }else{
-            if (type.equals("Educacion-continuada")) return cargarEduC(lec);
+        try{
+            if (type.equals("Tecnologica")){
+                return cargarTecnic(lec);
+            }else{
+                if (type.equals("Educacion-continuada")) return cargarEduC(lec);        
             
-            return cargarPro(lec);
-        }
+            }
+        }catch(Exception e){
+            System.out.println("-e-");
+        }    
+        return cargarPro(lec);
     }
     
     public ArrayList<Sede> cargar() throws FileNotFoundException{

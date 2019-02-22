@@ -39,7 +39,7 @@ public class Main {
             a = lectura.nextInt();
             
             int b = 0;
-            switch(a){
+            switch(a){ 
                 case 1:
                     System.out.println("1.Registrar sede de tipo profesional");
                     System.out.println("2.Registrar sede de tipo tecnologia");
@@ -113,11 +113,13 @@ public class Main {
                     }else{
                         System.out.println("Listado de sedes: ");
                         int i = 0;
-                        for(Sede nombre : universidad.getSedes()){
-                            System.out.println(i + ".Nombre: "+ nombre.nombre);
-                            System.out.println(" Tipo de Sede: " + nombre.tipo);
-                            i++;
-                        }
+                        try{
+                            for(Sede nombre : universidad.getSedes()){
+                                System.out.println(i + ".Nombre: "+ nombre.nombre);
+                                System.out.println(" Tipo de Sede: " + nombre.tipo);
+                                i++;
+                            }
+                        }catch(Exception e){}    
                         System.out.println("Digite la posicion de la sede que desea eliminar");
                         int pos = lectura.nextInt();
                         if (pos > (universidad.getSedes().size()-1)) {
@@ -137,11 +139,14 @@ public class Main {
                     }else{
                         System.out.println("Listado de sedes: ");
                         int p = 0;
-                        for(Sede nombre : universidad.getSedes()){
-                            System.out.println(p + ".Nombre: "+ nombre.nombre);
-                            System.out.println("  Tipo de Sede: " + nombre.tipo);
-                            p++;
-                        }
+                        try{
+                            for(Sede nombre : universidad.getSedes()){
+                                System.out.println(p + ".Nombre: "+ nombre.nombre);
+                                System.out.println("  Tipo de Sede: " + nombre.tipo);
+                                p++;
+                            }
+                        }catch(Exception e){
+                        }    
                         System.out.println("Digite la posicion de la sede: ");
                         int posA = lectura.nextInt();
                         if (posA > (universidad.getSedes().size()-1)) {
@@ -190,11 +195,13 @@ public class Main {
                     }else{
                         System.out.println("Listado de sedes: ");
                         int p = 0;
-                        for(Sede nombre : universidad.getSedes()){
-                            System.out.println(p + ".Nombre: "+ nombre.nombre);
-                            System.out.println("  Tipo de Sede: " + nombre.tipo);
-                            p++;
-                        }
+                        try{
+                            for(Sede nombre : universidad.getSedes()){
+                                System.out.println(p + ".Nombre: "+ nombre.nombre);
+                                System.out.println("  Tipo de Sede: " + nombre.tipo);
+                                p++;
+                            }
+                        }catch(Exception e){}    
                         System.out.println("Digite la posicion de la sede que desea consultar: ");
                         int posC = lectura.nextInt();
                         if (posC > (universidad.getSedes().size()-1)) {
@@ -210,11 +217,13 @@ public class Main {
                     }else{
                         System.out.println("Listado de sedes: ");
                         int p = 0;
-                        for(Sede nombre : universidad.getSedes()){
-                            System.out.println(p + ".Nombre: "+ nombre.nombre);
-                            System.out.println("  Tipo de Sede: " + nombre.tipo);
-                            p++;
-                        }
+                        try{
+                            for(Sede nombre : universidad.getSedes()){
+                                System.out.println(p + ".Nombre: "+ nombre.nombre);
+                                System.out.println("  Tipo de Sede: " + nombre.tipo);
+                                p++;
+                            }
+                        }catch(Exception e){ }    
                         System.out.println("Digite la posicion de la sede que desea consultar: ");
                         int posD = lectura.nextInt();
                         if (posD > (universidad.getSedes().size()-1)) {
