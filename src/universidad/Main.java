@@ -101,9 +101,10 @@ public class Main {
                             }else{
                                 System.out.println("Ocurrio un error");
                             }
-                            System.out.println("COMPROBACION");
+                            try{
                             for(Sede sede: universidad.getSedes())
                                 System.out.println(sede.tipo);
+                            }catch(Exception e){}
                             break;
                     }
                     break;
@@ -134,6 +135,7 @@ public class Main {
                     }
                     break;
                 case 3:
+                try{
                     if (universidad.getSedes().isEmpty()) {
                         System.out.println("No hay sedes existentes");
                     }else{
@@ -146,12 +148,13 @@ public class Main {
                                 p++;
                             }
                         }catch(Exception e){
-                        }    
+                        }
                         System.out.println("Digite la posicion de la sede: ");
                         int posA = lectura.nextInt();
-                        if (posA > (universidad.getSedes().size()-1)) {
+
+                
+                            universidad.getSedes().get(posA);
                             System.out.println("No existe una sede en esa posicion");
-                        }else{
                             System.out.println("Items para modificar: ");
                             System.out.println("1.Nombre");
                             System.out.println("2.Direccion");
@@ -186,9 +189,16 @@ public class Main {
                                     universidad.getSedes().get(posA).setAreaCons(ares);
                                     break;
                             }
-                        }
+
+                }
+                }catch(NullPointerException e ){
+                        System.out.println("No hay sedes en esta posicion");
+                        break;
+                }catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.println("La posicion señalada es incorrecta");
+                        break;
                     }
-                    break;
+                break;
                 case 4:
                     if (universidad.getSedes().isEmpty()) {
                         System.out.println("No hay sedes existentes");
@@ -223,7 +233,9 @@ public class Main {
                                 System.out.println("  Tipo de Sede: " + nombre.tipo);
                                 p++;
                             }
-                        }catch(Exception e){ }    
+                        }catch(Exception e){
+                            System.out.println("no hay sedes que modificar");
+                        }    
                         System.out.println("Digite la posicion de la sede que desea consultar: ");
                         int posD = lectura.nextInt();
                         if (posD > (universidad.getSedes().size()-1)) {
