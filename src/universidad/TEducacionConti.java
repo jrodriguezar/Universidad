@@ -58,24 +58,6 @@ public class TEducacionConti extends Sede {
 
     public ArrayList<ProgramaForm> getProgramas() {
         return programas;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public double getAreaCons() {
-        return areaCons;
-    }
-
-    
+    }   
     
 }

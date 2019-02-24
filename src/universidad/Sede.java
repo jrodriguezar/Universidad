@@ -19,6 +19,7 @@ public abstract class Sede {
     }
     
     public abstract void darInformacion();
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -34,5 +35,22 @@ public abstract class Sede {
     public void setAreaCons(double areaCons) {
         this.areaCons = areaCons;
     }
+    
     public abstract boolean addPrograma(String nombre, String descripcion, String nivelFormacion);
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public double getAreaCons() {
+        return areaCons;
+    }
 }

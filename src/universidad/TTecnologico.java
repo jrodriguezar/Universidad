@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * @authors Jhon Rodríguez, Diana Madero, Kevin Jiménez
  */
+
 public class TTecnologico extends Sede{
     
     private int numeroMatriculados;
@@ -54,22 +55,6 @@ public class TTecnologico extends Sede{
 
     public int getNumeroMatriculados() {
         return numeroMatriculados;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public double getAreaCons() {
-        return areaCons;
     }
     
     public ArrayList<ProgramaForm> getProgramas(){
