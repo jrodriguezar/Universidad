@@ -16,10 +16,6 @@ public class TTecnologico extends Sede{
         this.numeroMatriculados = numeroMatriculados;
         this.programas=new ArrayList<>();
     }
-
-    public TTecnologico(String nombre, String direccion, int telefono, double areaCons, String tipo) {
-        super(nombre, direccion, telefono, areaCons, tipo);
-    }
     
     public boolean addPrograma(String nombre, String descripcion, String nivelFormacion){
         return this.programas.add(new ProgramaForm(nombre,descripcion,nivelFormacion));

@@ -23,13 +23,13 @@ public class GestionArchivo {
         File archivo = new File(this.direccion);
         if(!archivo.exists())
             archivo.createNewFile();
-         
+        
         PrintStream salida = 
                new PrintStream(archivo);
-        for (Sede sede : sed) {
-            if (sede.tipo == "Tecnologica") {
+        for (int i = 0; i<sed.size();i++) {
+            if (sed.get(i).tipo.equals("Tecnologica")) {
                 TTecnologico sedT;
-                sedT = (TTecnologico) sede; 
+                sedT = (TTecnologico) sed.get(i); 
                 salida.print(sedT.tipo);
                 salida.print(",");
                 salida.print(sedT.tipo);
@@ -43,11 +43,15 @@ public class GestionArchivo {
                 salida.print(sedT.areaCons);
                 salida.print(",");
                 salida.print(sedT.getNumeroMatriculados());
-                salida.print(",\n");
+                if (i==sed.size()-1) {
+                    salida.print(",");
+                }else{
+                    salida.print(",\n");
+                }
             }else{
-                if (sede.tipo == "Educacion-continuada") {
-                    TEducacionConti sedt;
-                    sedt = (TEducacionConti) sede;
+                if (sed.get(i).tipo.equals("Educacion-continuada")) {
+                    TEducacionConti sedt = null;
+                    sedt = (TEducacionConti) sed.get(i);
                     salida.print(sedt.tipo);
                     salida.print(",");
                     salida.print(sedt.tipo);
@@ -61,11 +65,15 @@ public class GestionArchivo {
                     salida.print(sedt.areaCons);
                     salida.print(",");
                     salida.print(sedt.getCursoMasPopu());
-                    salida.print(",\n");
+                    if (i==sed.size()-1) {
+                        salida.print(",");
+                    }else{
+                        salida.print(",\n");
+                    }
                 }else{
-                    if(sede.tipo == "Profesional"){
-                        TProfesional sedC;
-                        sedC =(TProfesional) sede;
+                    if(sed.get(i).tipo.equals("Profesional")){
+                        TProfesional sedC = null;
+                        sedC =(TProfesional) sed.get(i);
                         salida.print(sedC.tipo);
                         salida.print(",");
                         salida.print(sedC.tipo);
@@ -79,10 +87,13 @@ public class GestionArchivo {
                         salida.print(sedC.areaCons);
                         salida.print(",");
                         salida.print(sedC.getNumProgramAltaC());
-                        salida.print(",\n");
-                    }
-                    System.out.println("No hay sedes viables");
-                }
+                        if (i==sed.size()-1) {
+                            salida.print(",");
+                        }else{
+                            salida.print(",\n");
+                        }
+                    }  
+                }//System.out.println("No hay sedes viables");
             }
         }
         salida.flush();
@@ -102,7 +113,7 @@ public class GestionArchivo {
             String are = lec.next().trim();
             double area = Double.parseDouble(are);
             String cursop = lec.next().trim();
-             ntc = new TEducacionConti(tip, nom, dir, tel, area, cursop);
+            ntc = new TEducacionConti(tip, nom, dir, tel, area, cursop);
         }catch(Exception e){
             System.out.println("-e-");
         }            
@@ -127,7 +138,8 @@ public class GestionArchivo {
             //System.out.println(numM);
             int numP = Integer.parseInt(numM);
             ntp = new TProfesional(tip, nom, dir, tel, area, numP);
-        
+            
+            
         }catch(Exception e ){
             System.out.println("-e-");
         }
@@ -136,6 +148,7 @@ public class GestionArchivo {
     }
     
     public TTecnologico cargarTecnic(Scanner lec){
+        //lec.reset();
         TTecnologico ntt = null;
         try{
             String tip = lec.next().trim();

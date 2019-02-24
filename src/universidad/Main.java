@@ -3,6 +3,7 @@ package universidad;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Scanner;
  */
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) throws FileNotFoundException, IOException{
         //Creando universidad
         Universidad universidad = new Universidad("Nacho");
         
@@ -251,8 +252,10 @@ public class Main {
                     }
                     break;
                 case 6:
+                    ArrayList<Sede> feg;
+                    feg = universidad.getSedes();
                     try{
-                        ga.guardar(universidad.getSedes());//arreglar el formatode guardado para que funcione
+                        ga.guardar(feg);
                     }catch(IOException e){
                         e.printStackTrace();
                     }

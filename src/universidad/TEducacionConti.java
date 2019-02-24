@@ -15,10 +15,6 @@ public class TEducacionConti extends Sede {
         this.cursoMasPopu = cursoMasPopu;
         this.programas=new ArrayList<>();
     }
-
-    public TEducacionConti(String nombre, String direccion, int telefono, double areaCons, String tipo) {
-        super(nombre, direccion, telefono, areaCons, tipo);
-    }
     
     public boolean addPrograma(String nombre, String descripcion, String nivelFormacion){
         return this.programas.add(new ProgramaForm(nombre,descripcion,nivelFormacion));
