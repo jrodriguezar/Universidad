@@ -71,22 +71,6 @@ public class TProfesional extends Sede{
         this.numProgramAltaC = numProgramAltaC;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public void setAreaCons(double areaCons) {
-        this.areaCons = areaCons;
-    }
-    
     //Para consultar datos especificos de la sede
 
     public int getNumProgramAltaC() {

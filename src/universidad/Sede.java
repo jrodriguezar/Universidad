@@ -19,9 +19,20 @@ public abstract class Sede {
     }
     
     public abstract void darInformacion();
-    public abstract void setNombre(String nombre);
-    public abstract void setDireccion(String direccion);
-    public abstract void setTelefono(int telefono);
-    public abstract void setAreaCons(double AreaCons);
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setAreaCons(double areaCons) {
+        this.areaCons = areaCons;
+    }
     public abstract boolean addPrograma(String nombre, String descripcion, String nivelFormacion);
 }

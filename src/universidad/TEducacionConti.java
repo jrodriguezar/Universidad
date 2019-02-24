@@ -49,22 +49,6 @@ public class TEducacionConti extends Sede {
     public void setCursoMapPopu(String cursoMasPopu) {
         this.cursoMasPopu = cursoMasPopu;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public void setAreaCons(double areaCons) {
-        this.areaCons = areaCons;
-    }
     
     //Para consultar datos especificos de la sede
 

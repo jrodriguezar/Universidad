@@ -9,15 +9,15 @@ import java.util.Scanner;
 /**
  * @authors Jhon Rodríguez, Diana Madero, Kevin Jiménez
  */
+
 public class Main {
     public static void main(String[] args) throws FileNotFoundException{
         //Creando universidad
         Universidad universidad = new Universidad("Nacho");
-        //Aqui se sobreescribiria los datos de la universidad por medio de la lectura de archivos
         
         Scanner lectura = new Scanner(System.in);
         int a=0;
-        String n = "Universidad.txt" ;
+        String n = "Universidad.txt";
         GestionArchivo ga = new GestionArchivo(n);
         try{
               universidad.setSedes(ga.cargar());
@@ -33,8 +33,8 @@ public class Main {
             System.out.println("3.Modificar sede");
             System.out.println("4.Consultar sede");
             System.out.println("5.Agregar programa a sede");
-            System.out.println("6.Terminar sesion");
-            System.out.println("7.Guardar");
+            System.out.println("6.Guardar");
+            System.out.println("7.Terminar sesión");
             System.out.println("Digite el número de la opción que desea elegir");
             a = lectura.nextInt();
             
@@ -252,15 +252,16 @@ public class Main {
                     }
                     break;
                 case 6:
-                    System.out.println("Sesion terminada. Gracias.");
-                    break;
-                case 7:
                     try{
                         ga.guardar(universidad.getSedes());//arreglar el formatode guardado para que funcione
                     }catch(IOException e){
                         e.printStackTrace();
                     }
-                        break;
+                    break;
+                case 7:
+                    System.out.println("Sesión terminada. Muchas gracias. EXCELENTE DÍA");
+                    a=9;
+                    break;
             }
         }while((0<a)&&(a<8));
     }

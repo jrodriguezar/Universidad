@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * @author Jhon
+ * @authors Jhon Rodríguez, Diana Madero, Kevin Jiménez
  */
+
 public class GestionArchivo {
     
     private String direccion;
