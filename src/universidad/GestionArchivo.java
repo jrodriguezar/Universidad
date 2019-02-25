@@ -43,10 +43,17 @@ public class GestionArchivo {
                 salida.print(sedT.areaCons);
                 salida.print(",");
                 salida.print(sedT.getNumeroMatriculados());
-                if (i==sed.size()-1) {
+                salida.print(",");
+                for (int j = 0; j < sedT.getProgramas().size(); j++) {
+                    salida.print(sedT.getProgramas().get(j).getNivelFormacion());
                     salida.print(",");
-                }else{
-                    salida.print(",\n");
+                    salida.print(sedT.getProgramas().get(j).getNombre());
+                    salida.print(",");
+                    salida.print(sedT.getProgramas().get(j).getDescripcion());
+                    salida.print(",");
+                }
+                if (i!=sed.size()-1) {
+                    salida.print("\n");
                 }
             }else{
                 if (sed.get(i).tipo.equals("Educacion-continuada")) {
@@ -65,10 +72,17 @@ public class GestionArchivo {
                     salida.print(sedt.areaCons);
                     salida.print(",");
                     salida.print(sedt.getCursoMasPopu());
-                    if (i==sed.size()-1) {
+                    salida.print(",");
+                    for (int j = 0; j < sedt.getProgramas().size(); j++) {
+                        salida.print(sedt.getProgramas().get(j).getNivelFormacion());
                         salida.print(",");
-                    }else{
-                        salida.print(",\n");
+                        salida.print(sedt.getProgramas().get(j).getNombre());
+                        salida.print(",");
+                        salida.print(sedt.getProgramas().get(j).getDescripcion());
+                        salida.print(",");
+                    }
+                    if (i!=sed.size()-1) {
+                        salida.print("\n");
                     }
                 }else{
                     if(sed.get(i).tipo.equals("Profesional")){
@@ -87,10 +101,17 @@ public class GestionArchivo {
                         salida.print(sedC.areaCons);
                         salida.print(",");
                         salida.print(sedC.getNumProgramAltaC());
-                        if (i==sed.size()-1) {
+                        salida.print(",");
+                        for (int j = 0; j < sedC.getProgramas().size(); j++) {
+                            salida.print(sedC.getProgramas().get(j).getNivelFormacion());
                             salida.print(",");
-                        }else{
-                            salida.print(",\n");
+                            salida.print(sedC.getProgramas().get(j).getNombre());
+                        salida.print(",");
+                        salida.print(sedC.getProgramas().get(j).getDescripcion());
+                        salida.print(",");
+                        }
+                        if (i!=sed.size()-1) {
+                            salida.print("\n");
                         }
                     }  
                 }//System.out.println("No hay sedes viables");

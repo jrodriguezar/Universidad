@@ -243,7 +243,7 @@ public class Main {
                         }else{
                             System.out.println("Digite el nombre del programa: ");
                             String nombreP = lectura.next();
-                            System.out.println("Digite la descripción del programa: ");
+                            System.out.println("Digite la descripción del programa(Una palabra o separador -): ");
                             String descripcionP = lectura.next();
                             System.out.println("Digite el nivel de formacion del programa (Tecnico, Continuo, Profesional): ");
                             String nivelP = lectura.next();
