@@ -241,11 +241,11 @@ public class Main {
                         if (posD > (universidad.getSedes().size()-1)) {
                             System.out.println("No existe una sede en esa posicion");
                         }else{
-                            System.out.println("Digite el nombre del programa: ");
+                            System.out.println("Digite el nombre del programa (Una palabra o separador -): ");
                             String nombreP = lectura.next();
-                            System.out.println("Digite la descripción del programa(Una palabra o separador -): ");
+                            System.out.println("Digite la descripción del programa (Una palabra o separador -): ");
                             String descripcionP = lectura.next();
-                            System.out.println("Digite el nivel de formacion del programa (Tecnico, Continuo, Profesional): ");
+                            System.out.println("Digite el nivel de formacion del programa (PTecnologico, PEducacioncontinua, PProfesional): ");
                             String nivelP = lectura.next();
                             universidad.getSede(posD).addPrograma(nombreP, descripcionP, nivelP);
                         }

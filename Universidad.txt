@@ -1,4 +1,4 @@
-Profesional,Profesional,Juanito,gfd,432,43.0,0,
-Tecnologica,Tecnologica,Pedro,hgfd,32,543.0,0,
-Profesional,Profesional,Kevin-san,gfd,432,543.0,0,
-Educacion-continuada,Educacion-continuada,jhgf,hgfds,43,543.0,nell,
+Profesional,Profesional,Juanito,gfd,432,43.0,0,PTecnologico,qwert,wert,PProfesional,Kevin,hgfds,
+Tecnologica,Tecnologica,Pedro,hgfd,32,543.0,0,PTecnologico,qwert,wert,
+Profesional,Profesional,Kevin-san,gfd,432,543.0,0,PTecnologico,qwert,wert,
+Educacion-continuada,Educacion-continuada,jhgf,hgfds,43,543.0,nell,PTecnologico,qwert,wert,PProfesional,WERO,izi,

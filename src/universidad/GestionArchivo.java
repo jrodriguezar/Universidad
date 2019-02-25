@@ -19,7 +19,7 @@ public class GestionArchivo {
         this.direccion = direccion;
     }
     
-    public boolean guardar(ArrayList<Sede> sed) throws IOException{//arreglar para que reescriba lo anterior junt con lo que se agregue, ademas para los programas
+    public boolean guardar(ArrayList<Sede> sed) throws IOException{
         File archivo = new File(this.direccion);
         if(!archivo.exists())
             archivo.createNewFile();
@@ -106,15 +106,15 @@ public class GestionArchivo {
                             salida.print(sedC.getProgramas().get(j).getNivelFormacion());
                             salida.print(",");
                             salida.print(sedC.getProgramas().get(j).getNombre());
-                        salida.print(",");
-                        salida.print(sedC.getProgramas().get(j).getDescripcion());
-                        salida.print(",");
+                            salida.print(",");
+                            salida.print(sedC.getProgramas().get(j).getDescripcion());
+                            salida.print(",");
                         }
                         if (i!=sed.size()-1) {
                             salida.print("\n");
                         }
                     }  
-                }//System.out.println("No hay sedes viables");
+                }
             }
         }
         salida.flush();
@@ -128,13 +128,25 @@ public class GestionArchivo {
         try{
             String tip = lec.next().trim();
             String nom = lec.next().trim();
-            String dir = lec.next().trim();//es posible que esto falle, puede que funcione en su luugar nextline
+            String dir = lec.next().trim();
             String num = lec.next().trim();
             int tel = Integer.parseInt(num);
             String are = lec.next().trim();
             double area = Double.parseDouble(are);
             String cursop = lec.next().trim();
             ntc = new TEducacionConti(tip, nom, dir, tel, area, cursop);
+            
+            for (int i = 0; i < 100; i++) {
+                if (lec.hasNext("PTecnologico")||lec.hasNext("PProfesional")||lec.hasNext("PEducacioncontinua")) {
+                    String nivp = lec.next().trim();
+                    String namep = lec.next().trim();
+                    String desp = lec.next().trim();
+
+                    ntc.addPrograma(namep, desp, nivp);
+                }else{
+                    break;
+                }
+            }
         }catch(Exception e){
             System.out.println("-e-");
         }            
@@ -149,7 +161,7 @@ public class GestionArchivo {
             //System.out.println(tip);
             String nom = lec.next().trim();
             //System.out.println(nom);
-            String dir = lec.next().trim();//es posible que esto falle
+            String dir = lec.next().trim();
             //System.out.println(dir);
             String num = lec.next().trim();
             int tel = Integer.parseInt(num);
@@ -160,6 +172,18 @@ public class GestionArchivo {
             int numP = Integer.parseInt(numM);
             ntp = new TProfesional(tip, nom, dir, tel, area, numP);
             
+            
+            for (int i = 0; i < 100; i++) {
+                if (lec.hasNext("PTecnologico")||lec.hasNext("PProfesional")||lec.hasNext("PEducacioncontinua")) {
+                    String nivp = lec.next().trim();
+                    String namep = lec.next().trim();
+                    String desp = lec.next().trim();
+
+                    ntp.addPrograma(namep, desp, nivp);
+                }else{
+                    break;
+                }
+            }
             
         }catch(Exception e ){
             System.out.println("-e-");
@@ -174,7 +198,7 @@ public class GestionArchivo {
         try{
             String tip = lec.next().trim();
             String nom = lec.next().trim();
-            String dir = lec.next().trim();//es posible que esto falle
+            String dir = lec.next().trim();
             String num = lec.next().trim();
             int tel = Integer.parseInt(num);
             String are = lec.next().trim();
@@ -183,13 +207,25 @@ public class GestionArchivo {
             int numMa = Integer.parseInt(numM);
 
             ntt = new TTecnologico(tip, nom, dir, tel, area, numMa);
+            
+            for (int i = 0; i < 100; i++) {
+                if (lec.hasNext("PTecnologico")||lec.hasNext("PProfesional")||lec.hasNext("PEducacioncontinua")) {
+                    String nivp = lec.next().trim();
+                    String namep = lec.next().trim();
+                    String desp = lec.next().trim();
+
+                    ntt.addPrograma(namep, desp, nivp);
+                }else{
+                    break;
+                }
+            }
         }catch(Exception e){
             System.out.println("-e-");
         }
         return ntt;
     }
     
-    public Sede cargarSede(Scanner lec){ //revisar este try n catch
+    public Sede cargarSede(Scanner lec){ 
         String type = lec.next().trim();
         try{
             if (type.equals("Tecnologica")){
